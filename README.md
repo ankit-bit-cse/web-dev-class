@@ -7,7 +7,7 @@ A structured **35-day Web Development Foundation** covering:
 - Advanced JavaScript — 10 Days
 - Conceptual assignments
 - Practical coding exercises
-- Mini projects
+- Mini projectsgi
 - Final project
 - Developer thinking and problem-solving
 
