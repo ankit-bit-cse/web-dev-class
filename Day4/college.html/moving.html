@@ -1,0 +1,40 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Box</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+
+            animation: moveBox 4s infinite alternate;
+        }
+
+        @keyframes moveBox {
+            0% {
+                left: 0px;
+            }
+
+            100% {
+                left: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+</html>
+```
