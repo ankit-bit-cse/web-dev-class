@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Webpage</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Header */
+        header {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        /* Navigation */
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        /* Main Container */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+        }
+        /* Cards */
+        .card {
+            flex: 1;
+            background-color: lightblue;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .card h2 {
+            margin-bottom: 10px;
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Tablet */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-wrap: wrap;
+            }
+            .card {
+                flex: 45%;
+            }
+            nav a {
+                padding: 12px 15px;
+            }
+        }
+        /* Mobile */
+        @media screen and (max-width: 480px) {
+            header {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Responsive Website</h1>
+        <p>HTML & CSS Media Query Example</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>HTML</h2>
+            <p>HTML is used to create the structure of a webpage.</p>
+        </div>
+
+        <div class="card">
+            <h2>CSS</h2>
+            <p>CSS is used to design and style a webpage.</p>
+        </div>
+        <div class="card">
+            <h2>JavaScript</h2>
+            <p>JavaScript is used to add functionality to webpages.</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2026 My Website</p>
+    </footer>
+</body>
+</html>
+
