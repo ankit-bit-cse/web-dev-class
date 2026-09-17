@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <h1>Form</h1>
+
+    <form action="submission.html" method="post">
+
+        <b>User Name</b><br>
+
+        <input
+            type="text"
+            name="name"
+            value=""
+            placeholder="Enter your name"
+            size="30"
+            height="15"
+            width="80"
+        >
+        <br><br>
+
+        <b>Password</b><br>
+
+        <input
+            type="password"
+            name="password"
+            value=""
+            placeholder="Enter your password"
+            size="30"
+            height="15"
+            width="80"
+        >
+        <br><br>
+
+        <label for="age">Age:</label>
+
+        <input
+            type="number"
+            id="age"
+            name="age"
+            min="18"
+            max="60"
+            required
+        >
+        <br><br>
+
+        <label for="email">Email:</label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@gmail.com"
+            required
+        >
+        <br><br>
+
+        <label for="dob">Date of Birth:</label>
+
+        <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+        >
+        <br><br>
+
+        <label for="course">Select Course:</label>
+
+        <select id="course" name="course" required>
+            <option value="">Select Course</option>
+            <option value="btech">B.Tech</option>
+            <option value="mtech">M.Tech</option>
+            <option value="bca">BCA</option>
+            <option value="mca">MCA</option>
+        </select>
+
+        <br><br>
+
+        <label for="mobile">Mobile Number:</label>
+
+        <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="10 digit mobile number"
+            pattern="[0-9]{10}"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="checkbox"
+            name="terms"
+            required
+        >
+        I agree to the terms and conditions.
+
+        <br><br>
+
+        <b>Address</b><br>
+
+        <textarea
+            rows="2"
+            cols="30"
+            name="address"
+            style="background-color: rgb(224, 225, 226);
+                   overflow-y: scroll;"
+            placeholder="Enter your address"
+        ></textarea>
+
+        <br><br>
+
+        <b>Country</b><br>
+
+        <select name="country" size="1">
+            <option value="">Select</option>
+            <option value="india">India</option>
+            <option value="japan">Japan</option>
+        </select>
+
+        <br><br>
+
+        <b>Gender</b><br>
+
+        <input
+            type="radio"
+            name="gender"
+            value="male"
+        >
+        Male
+
+        <input
+            type="radio"
+            name="gender"
+            value="female"
+        >
+        Female
+
+        <br><br>
+
+        <b>Hobbies</b><br>
+
+        <input
+            type="checkbox"
+            name="hobby"
+            value="dancing"
+        >
+        Dancing
+
+        <input
+            type="checkbox"
+            name="hobby"
+            value="reading"
+        >
+        Reading
+
+        <input
+            type="checkbox"
+            name="hobby"
+            value="sports"
+        >
+        Sports
+
+        <br><br>
+
+        <input
+            type="submit"
+            value="Submit"
+        >
+
+        <input
+            type="reset"
+            value="Reset"
+        >
+
+        <input
+            type="button"
+            value="Cancel"
+        >
+
+        <br><br>
+
+        <label for="file">Upload File:</label>
+
+        <input
+            type="file"
+            id="file"
+            name="file"
+        >
+
+        <br><br>
+
+        <label for="rating">Rating:</label>
+
+        <input
+            type="range"
+            name="rating"
+            min="1"
+            max="10"
+        >
+
+        <br><br>
+
+        <label for="search">Search:</label>
+
+        <input
+            type="search"
+            name="search"
+            placeholder="Search here"
+            style="background-color: aqua;"
+        >
+
+        <br><br>
+
+        <label for="website">Website:</label>
+
+        <input
+            type="url"
+            name="website"
+            placeholder="https://example.com"
+        >
+
+    </form>
+
+</body>
+</html>
