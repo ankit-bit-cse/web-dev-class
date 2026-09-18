@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Village Weather Map</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9f5ee;
+            padding: 25px;
+        }
+
+        .weather-map {
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* HEADER */
+
+        .header {
+            text-align: center;
+            padding: 25px 10px;
+            background: linear-gradient(#dff6ff, #8edcf2);
+        }
+
+        .weather-icon {
+            font-size: 45px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .header h1 {
+            display: inline-block;
+            font-size: 42px;
+            color: #4f5f5d;
+            margin-left: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* SKY */
+
+        .sky {
+            height: 160px;
+            position: relative;
+            background: linear-gradient(#63d5f2, #a7e8f5);
+            overflow: hidden;
+        }
+
+        .sun {
+            position: absolute;
+            right: 90px;
+            top: 25px;
+            font-size: 70px;
+        }
+
+        .cloud {
+            position: absolute;
+            font-size: 65px;
+        }
+
+        .cloud1 {
+            left: 100px;
+            top: 30px;
+        }
+
+        .cloud2 {
+            right: 300px;
+            top: 55px;
+        }
+
+        /* MOUNTAINS */
+
+        .mountains {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+        }
+
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 130px solid transparent;
+            border-right: 130px solid transparent;
+            border-bottom: 130px solid #3a9aaa;
+        }
+
+        .m1 {
+            left: 0;
+        }
+
+        .m2 {
+            left: 180px;
+            border-bottom-color: #2c8899;
+        }
+
+        .m3 {
+            left: 390px;
+        }
+
+        .m4 {
+            right: 200px;
+            border-bottom-color: #2c8899;
+        }
+
+        .m5 {
+            right: 0;
+        }
+
+        /* MAP */
+
+        .map {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+            background: #43a84d;
+            padding: 20px;
+            gap: 12px;
+        }
+
+        .state {
+            position: relative;
+            border: 5px solid white;
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 30px 20px;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    #65c653 0px,
+                    #65c653 45px,
+                    #83d34d 46px,
+                    #83d34d 80px
+                );
+        }
+
+        .state h2 {
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 3px #24712a;
+        }
+
+        /* ROADS */
+
+        .road {
+            position: absolute;
+            background: #d5a35c;
+            height: 55px;
+            width: 115%;
+            left: -8%;
+            top: 50%;
+            transform: rotate(-8deg);
+            border-top: 5px solid #f5d98c;
+            border-bottom: 5px solid #f5d98c;
+        }
+
+        .road::after {
+            content: "";
+            position: absolute;
+            top: 22px;
+            width: 100%;
+            border-top: 4px dashed white;
+        }
+
+        .road2 {
+            transform: rotate(90deg);
+            width: 100%;
+            left: 0;
+            top: 48%;
+        }
+
+        /* RIVER */
+
+        .river {
+            position: absolute;
+            bottom: 0;
+            left: -5%;
+            width: 110%;
+            height: 90px;
+            background: #22bde5;
+            border-top: 8px solid #82e9ff;
+            transform: rotate(-3deg);
+        }
+
+        /* HOUSES */
+
+        .house {
+            position: absolute;
+            width: 75px;
+            height: 55px;
+            background: #fff0bd;
+            border: 3px solid #8c6338;
+        }
+
+        .house::before {
+            content: "";
+            position: absolute;
+            top: -38px;
+            left: -8px;
+            border-left: 43px solid transparent;
+            border-right: 43px solid transparent;
+            border-bottom: 40px solid #e84b32;
+        }
+
+        .door {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            background: #75452b;
+            bottom: 0;
+            left: 27px;
+        }
+
+        .h1 {
+            left: 50px;
+            top: 180px;
+        }
+
+        .h2 {
+            left: 150px;
+            top: 280px;
+        }
+
+        .h3 {
+            right: 80px;
+            top: 150px;
+        }
+
+        /* TREES */
+
+        .tree {
+            position: absolute;
+            font-size: 45px;
+        }
+
+        .t1 { left: 30px; top: 90px; }
+        .t2 { left: 250px; top: 100px; }
+        .t3 { right: 40px; top: 90px; }
+        .t4 { right: 180px; bottom: 110px; }
+        .t5 { left: 280px; bottom: 90px; }
+
+        /* WEATHER CARD */
+
+        .weather-card {
+            position: absolute;
+            z-index: 5;
+            width: 230px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(15, 35, 35, 0.92);
+            color: white;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .weather-card .place {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .temperature {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        .weather-card p {
+            font-size: 15px;
+            margin: 3px 0;
+        }
+
+        .weather-symbol {
+            font-size: 35px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .card1 {
+            top: 70px;
+            right: 40px;
+        }
+
+        .card2 {
+            bottom: 150px;
+            left: 70px;
+        }
+
+        /* SECOND STATE */
+
+        .state2 .card1 {
+            top: 70px;
+            left: 40px;
+        }
+
+        .state2 .card2 {
+            bottom: 120px;
+            right: 40px;
+            left: auto;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #124c3d;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* COMPASS */
+
+        .compass {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #14523f;
+            border: 4px solid white;
+            color: white;
+            text-align: center;
+            padding-top: 25px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .compass::before {
+            content: "▲";
+            position: absolute;
+            top: 2px;
+            left: 29px;
+            color: red;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .map {
+                grid-template-columns: 1fr;
+            }
+
+            .state {
+                min-height: 500px;
+            }
+
+            .weather-card {
+                width: 200px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="weather-map">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <span class="weather-icon">🌦️</span>
+
+            <h1>Village Weather Map</h1>
+
+            <p>Bihar & Jharkhand • 4 Different Village Areas</p>
+
+        </header>
+
+
+        <!-- SKY -->
+
+        <div class="sky">
+
+            <div class="sun">☀️</div>
+
+            <div class="cloud cloud1">☁️</div>
+
+            <div class="cloud cloud2">☁️</div>
+
+            <div class="mountains">
+
+                <div class="mountain m1"></div>
+                <div class="mountain m2"></div>
+                <div class="mountain m3"></div>
+                <div class="mountain m4"></div>
+                <div class="mountain m5"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAP -->
+
+        <main class="map">
+
+
+            <!-- BIHAR -->
+
+            <section class="state">
+
+                <h2>BIHAR</h2>
+
+                <div class="road"></div>
+
+                <div class="road road2"></div>
+
+                <div class="river"></div>
+
+
+                <!-- Houses -->
+
+                <div class="house h1">
+                    <div class="door"></div>
+                </div>
+
+                <div class="house h2">
+                    <div class="door"></div>
+                </div>
+
+
+                <!-- Trees -->
+
+                <div class="tree t1">🌳</div>
+                <div class="tree t2">🌳</div>
+                <div class="tree t3">🌳</div>
+                <div class="tree t4">🌴</div>
+                <div class="tree t5">🌳</div>
+
+
+                <!-- Weather Card 1 -->
+
+                <div class="weather-card card1">
+
+                    <div class="weather-symbol">☀️</div>
+
+                    <div class="place">Sonpur</div>
+
+                    <div class="temperature">28°C</div>
+
+                    <p>Humidity: 65%</p>
+                    <p>Wind: 12 km/h</p>
+
+                </div>
+
+
+                <!-- Weather Card 2 -->
+
+                <div class="weather-card card2">
+
+                    <div class="weather-symbol">🌧️</div>
+
+                    <div class="place">Hajipur</div>
+
+                    <div class="temperature">24°C</div>
+
+                    <p>Humidity: 82%</p>
+                    <p>Wind: 8 km/h</p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- JHARKHAND -->
+
+            <section class="state state2">
+
+                <h2>JHARKHAND</h2>
+
+                <div class="road"></div>
+
+                <div class="river"></div>
+
+
+                <!-- Houses -->
+
+                <div class="house h1">
+                    <div class="door"></div>
+                </div>
+
+                <div class="house h3">
+                    <div class="door"></div>
+                </div>
+
+
+                <!-- Trees -->
+
+                <div class="tree t1">🌳</div>
+                <div class="tree t2">🌲</div>
+                <div class="tree t3">🌳</div>
+                <div class="tree t4">🌳</div>
+                <div class="tree t5">🌲</div>
+
+
+                <!-- Weather Card 1 -->
+
+                <div class="weather-card card1">
+
+                    <div class="weather-symbol">🌤️</div>
+
+                    <div class="place">Ranchi</div>
+
+                    <div class="temperature">26°C</div>
+
+                    <p>Humidity: 70%</p>
+                    <p>Wind: 14 km/h</p>
+
+                </div>
+
+
+                <!-- Weather Card 2 -->
+
+                <div class="weather-card card2">
+
+                    <div class="weather-symbol">🌧️</div>
+
+                    <div class="place">Dhanbad</div>
+
+                    <div class="temperature">31°C</div>
+
+                    <p>Humidity: 68%</p>
+                    <p>Wind: 10 km/h</p>
+
+                </div>
+
+
+                <div class="compass">
+                    N
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            Realistic Village Landscape • Fields • Roads • Houses • Water • Weather
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
