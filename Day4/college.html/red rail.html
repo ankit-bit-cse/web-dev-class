@@ -1,0 +1,464 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RedRail - Train Ticket Booking</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #d32f2f;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd54f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            background-color: white;
+            color: #d32f2f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(
+                rgba(180, 0, 0, 0.75),
+                rgba(180, 0, 0, 0.75)
+            ),
+            url("https://images.unsplash.com/photo-1474487548417-781cb71495f3");
+            
+            background-size: cover;
+            background-position: center;
+
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1100px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        /* Search Box */
+        .search-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .input-box {
+            flex: 1;
+            text-align: left;
+        }
+
+        .input-box label {
+            display: block;
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .swap {
+            background-color: #eeeeee;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .search-btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Main Content */
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* Popular Routes */
+        .routes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .route {
+            background-color: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        .route h4 {
+            margin-bottom: 7px;
+        }
+
+        .route p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #bbb;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: auto;
+                padding: 60px 0;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .input-box {
+                width: 100%;
+            }
+
+            .swap {
+                transform: rotate(90deg);
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .routes {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .routes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Red<span>Rail</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Trains</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">My Bookings</a></li>
+        </ul>
+
+        <button class="login-btn">Login</button>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Book Train Tickets Easily</h1>
+
+            <p>
+                Search and book your train tickets quickly and securely
+            </p>
+
+
+            <!-- Search Box -->
+            <div class="search-box">
+
+                <div class="input-box">
+                    <label>FROM</label>
+                    <input type="text" placeholder="Enter source station">
+                </div>
+
+
+                <div class="swap">
+                    ⇄
+                </div>
+
+
+                <div class="input-box">
+                    <label>TO</label>
+                    <input type="text" placeholder="Enter destination">
+                </div>
+
+
+                <div class="input-box">
+                    <label>DATE</label>
+                    <input type="date">
+                </div>
+
+
+                <div class="input-box">
+                    <label>PASSENGERS</label>
+
+                    <select>
+                        <option>1 Passenger</option>
+                        <option>2 Passengers</option>
+                        <option>3 Passengers</option>
+                        <option>4 Passengers</option>
+                        <option>5 Passengers</option>
+                    </select>
+                </div>
+
+
+                <button class="search-btn">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <h2 class="section-title">
+            Why Book With RedRail?
+        </h2>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🚆</div>
+
+                <h3>Easy Train Booking</h3>
+
+                <p>
+                    Search and book train tickets with a simple
+                    and easy-to-use interface.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">🔒</div>
+
+                <h3>Secure Payments</h3>
+
+                <p>
+                    Your payment information is protected with
+                    secure and reliable payment methods.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">🎫</div>
+
+                <h3>Instant Confirmation</h3>
+
+                <p>
+                    Get your booking confirmation quickly after
+                    completing your ticket booking.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Popular Routes -->
+        <h2 class="section-title" style="margin-top:45px;">
+            Popular Train Routes
+        </h2>
+
+
+        <div class="routes">
+
+            <div class="route">
+                <h4>Delhi → Mumbai</h4>
+                <p>Multiple trains available</p>
+            </div>
+
+            <div class="route">
+                <h4>Delhi → Patna</h4>
+                <p>Multiple trains available</p>
+            </div>
+
+            <div class="route">
+                <h4>Patna → Kolkata</h4>
+                <p>Multiple trains available</p>
+            </div>
+
+            <div class="route">
+                <h4>Mumbai → Pune</h4>
+                <p>Multiple trains available</p>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>RedRail</h3>
+
+        <p>
+            Train Ticket Booking Website
+        </p>
+
+        <p>
+            © 2026 RedRail Demo. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
