@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NPTEL - Online Learning</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f6f8;
+            color: #333;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 70px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box {
+            background-color: #c62828;
+            color: white;
+            padding: 8px 12px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            color: #333;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #c62828;
+        }
+
+        .login-btn {
+            background-color: #c62828;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .login-btn:hover {
+            background-color: #a91f1f;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: linear-gradient(135deg, #8e0000, #d32f2f);
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #ffd54f;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Search */
+
+        .search {
+            background-color: white;
+            padding: 8px;
+            border-radius: 7px;
+            display: flex;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        .search button {
+            background-color: #c62828;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ================= MAIN ================= */
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: 45px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .section-title span {
+            color: #c62828;
+        }
+
+        /* ================= COURSE CARDS ================= */
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+        }
+
+        .course-header {
+            height: 110px;
+            background-color: #eeeeee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+        }
+
+        .course-body {
+            padding: 20px;
+        }
+
+        .course-body h3 {
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .course-body p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .course-btn {
+            background-color: #c62828;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 9px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            background-color: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            background-color: #fff4f4;
+            transform: translateY(-4px);
+        }
+
+        .category-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            font-size: 16px;
+        }
+
+        /* ================= CERTIFICATE ================= */
+
+        .certificate {
+            margin-top: 60px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .certificate-text {
+            flex: 1;
+        }
+
+        .certificate-text h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .certificate-text p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .certificate-box {
+            width: 280px;
+            height: 180px;
+            border: 8px solid #c62828;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .certificate-box h3 {
+            color: #c62828;
+            font-size: 23px;
+        }
+
+        .certificate-box p {
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            background-color: #c62828;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            border-radius: 8px;
+        }
+
+        .stat h2 {
+            font-size: 30px;
+            margin-bottom: 7px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 60px;
+            background-color: #222;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h2 {
+            margin-bottom: 15px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #bbb;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .copyright {
+            border-top: 1px solid #444;
+            margin-top: 35px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .courses {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .categories {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .search {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .search button {
+                padding: 13px;
+            }
+
+            .courses {
+                grid-template-columns: 1fr;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate {
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                NPTEL
+            </div>
+
+            <div class="logo-text">
+                Online Learning
+            </div>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#">Home</a>
+            </li>
+
+            <li>
+                <a href="#">Courses</a>
+            </li>
+
+            <li>
+                <a href="#">Programs</a>
+            </li>
+
+            <li>
+                <a href="#">Certification</a>
+            </li>
+
+            <li>
+                <a href="#">About</a>
+            </li>
+
+        </ul>
+
+
+        <button class="login-btn">
+            Login
+        </button>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Learn from the Best with
+                <span>NPTEL</span>
+            </h1>
+
+            <p>
+                Learn new skills from top professors and experts.
+                Explore online courses and build your knowledge.
+            </p>
+
+
+            <div class="search">
+
+                <input
+                    type="text"
+                    placeholder="Search for courses..."
+                >
+
+                <button>
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- COURSES -->
+
+        <h2 class="section-title">
+            Popular <span>Courses</span>
+        </h2>
+
+
+        <div class="courses">
+
+
+            <div class="course-card">
+
