@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+        }
+
+        .calculator {
+            width: 300px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+
+            font-size: 28px;
+            text-align: right;
+
+            margin-bottom: 15px;
+
+            padding: 10px;
+            box-sizing: border-box;
+
+            border: none;
+            border-radius: 8px;
+        }
+
+        .buttons {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        button {
+            height: 55px;
+
+            font-size: 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        .operator {
+            background-color: orange;
+            color: white;
+        }
+
+        .clear {
+            background-color: red;
+            color: white;
+        }
+
+        .equal {
+            background-color: green;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <!-- Display -->
+        <input type="text" id="display" readonly>
+
+
+        <!-- Buttons -->
+        <div class="buttons">
+
+            <button class="clear" onclick="clearDisplay()">C</button>
+
+            <button onclick="deleteLast()">⌫</button>
+
+            <button class="operator" onclick="appendValue('%')">%</butt
