@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Float Moving</title>
+
+    <style>
+        .box {
+            width: 120px;
+            height: 80px;
+            background-color: lightblue;
+            float: left;
+            text-align: center;
+            padding-top: 20px;
+            animation: move 3s infinite alternate;
+        }
+
+        @keyframes move {
+            from {
+                transform: translateX(0px);
+            }
+
+            to {
+                transform: translateX(300px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        Moving Box
+    </div>
+
+</body>
+</html>
