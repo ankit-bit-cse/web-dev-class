@@ -1,0 +1,132 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SVG Graphics Animation</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            border: 3px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        svg {
+            width: 100%;
+            height: 500px;
+            display: block;
+        }
+
+        .info {
+            padding: 15px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Graphics Using SVG</h1>
+
+    <div class="container">
+
+        <svg viewBox="0 0 1000 500">
+
+            <!-- Sky -->
+            <rect width="1000" height="500" fill="skyblue" />
+
+            <!-- Sun -->
+            <circle cx="850" cy="80" r="50" fill="yellow">
+                <animate attributeName="cy" values="80;120;80" dur="3s" repeatCount="indefinite" />
+            </circle>
+
+            <!-- Cloud -->
+            <g>
+                <circle cx="150" cy="100" r="35" fill="white" />
+                <circle cx="190" cy="90" r="45" fill="white" />
+                <circle cx="240" cy="105" r="35" fill="white" />
+                <rect x="150" y="100" width="90" height="40" fill="white" />
+
+                <!-- Cloud Movement -->
+                <animateTransform attributeName="transform" type="translate" from="0 0" to="600 0" dur="8s"
+                    repeatCount="indefinite" />
+            </g>
+
+            <!-- Ground -->
+            <rect x="0" y="350" width="1000" height="150" fill="green" />
+
+            <!-- Road -->
+            <rect x="0" y="400" width="1000" height="100" fill="gray" />
+
+            <!-- Road Lines -->
+            <line x1="0" y1="450" x2="100" y2="450" stroke="white" stroke-width="8" />
+
+            <line x1="180" y1="450" x2="280" y2="450" stroke="white" stroke-width="8" />
+
+            <line x1="360" y1="450" x2="460" y2="450" stroke="white" stroke-width="8" />
+
+            <line x1="540" y1="450" x2="640" y2="450" stroke="white" stroke-width="8" />
+
+            <line x1="720" y1="450" x2="820" y2="450" stroke="white" stroke-width="8" />
+
+            <line x1="900" y1="450" x2="1000" y2="450" stroke="white" stroke-width="8" />
+
+            <!-- Car -->
+            <g>
+
+                <!-- Car Body -->
+                <rect x="100" y="330" width="180" height="60" rx="15" fill="red" />
+
+                <!-- Car Roof -->
+                <polygon points="140,330 175,290 235,290 270,330" fill="red" />
+
+                <!-- Windows -->
+                <polygon points="180,300 205,300 220,325 170,325" fill="lightblue" />
+
+                <polygon points="210,300 230,300 255,325 225,325" fill="lightblue" />
+
+                <!-- Wheels -->
+                <circle cx="145" cy="395" r="25" fill="black" />
+                <circle cx="245" cy="395" r="25" fill="black" />
+
+                <circle cx="145" cy="395" r="10" fill="gray" />
+                <circle cx="245" cy="395" r="10" fill="gray" />
+                <!-- Car Movement -->
+                <animateTransform attributeName="transform" type="translate" from="0 0" to="720 0" dur="5s"
+                    repeatCount="indefinite" />
+            </g>
+        </svg>
+        <div class="info">
+            <h2>SVG Animation</h2>
+            <p>
+                This webpage uses SVG elements such as
+                Circle, Rectangle, Line, Polygon and Group.
+            </p>
+            <p>
+                The car, cloud and sun are animated using
+                <b>animate</b> and <b>animateTransform</b>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
