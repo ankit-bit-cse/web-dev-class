@@ -1,0 +1,277 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Canvas and SVG Graphics</title>
+</head>
+
+<body>
+
+    <!-- ==================== HTML CANVAS ==================== -->
+
+    <h2>1. HTML Canvas</h2>
+
+    <canvas id="myCanvas" width="400" height="200"
+            style="border:1px solid black;">
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "blue";
+        ctx.fillRect(50, 50, 200, 100);
+    </script>
+
+
+    <!-- ==================== CANVAS FUNCTIONS ==================== -->
+
+    <h2>2. HTML Canvas - Important Methods</h2>
+
+    <canvas id="canvasMethods" width="600" height="400"
+            style="border:2px solid black;">
+    </canvas>
+
+    <script>
+        var canvas2 = document.getElementById("canvasMethods");
+        var ctx2 = canvas2.getContext("2d");
+
+        // 1. fillRect()
+        ctx2.fillStyle = "blue";
+        ctx2.fillRect(30, 30, 120, 70);
+
+        // 2. strokeRect()
+        ctx2.strokeStyle = "red";
+        ctx2.lineWidth = 4;
+        ctx2.strokeRect(200, 30, 120, 70);
+
+        // 3. clearRect()
+        ctx2.clearRect(70, 50, 40, 30);
+
+        // 4. beginPath()
+        ctx2.beginPath();
+
+        // 5. moveTo()
+        ctx2.moveTo(50, 150);
+
+        // 6. lineTo()
+        ctx2.lineTo(200, 150);
+        ctx2.lineTo(125, 220);
+
+        // 7. stroke()
+        ctx2.strokeStyle = "green";
+        ctx2.lineWidth = 5;
+        ctx2.stroke();
+
+        // 8. arc()
+        ctx2.beginPath();
+        ctx2.arc(350, 180, 60, 0, 2 * Math.PI);
+
+        // 9. fill()
+        ctx2.fillStyle = "orange";
+        ctx2.fill();
+
+        // Circle outline
+        ctx2.strokeStyle = "black";
+        ctx2.stroke();
+    </script>
+
+
+    <!-- ==================== SVG GRAPHICS ==================== -->
+
+    <h2>3. SVG Graphics</h2>
+
+    <svg width="500" height="250"
+         style="border:1px solid black;">
+
+        <rect x="50" y="50"
+              width="150"
+              height="100"
+              fill="blue" />
+
+        <circle cx="320"
+                cy="100"
+                r="50"
+                fill="red" />
+
+    </svg>
+
+
+    <!-- ==================== SVG CIRCLE ==================== -->
+
+    <h2>4. SVG Circle</h2>
+
+    <svg width="500" height="200"
+         style="border:2px solid black;">
+
+        <circle cx="250"
+                cy="100"
+                r="60"
+                fill="red" />
+
+    </svg>
+
+
+    <!-- ==================== SVG RECTANGLE ==================== -->
+
+    <h2>5. SVG Rectangle</h2>
+
+    <svg width="500" height="200"
+         style="border:2px solid black;">
+
+        <rect x="100"
+              y="50"
+              width="250"
+              height="100"
+              fill="blue" />
+
+    </svg>
+
+
+    <!-- ==================== SVG LINE ==================== -->
+
+    <h2>6. SVG Line</h2>
+
+    <svg width="500" height="200"
+         style="border:2px solid black;">
+
+        <line x1="50"
+              y1="50"
+              x2="400"
+              y2="150"
+              stroke="green"
+              stroke-width="5" />
+
+    </svg>
+
+
+    <!-- ==================== SVG ELLIPSE ==================== -->
+
+    <h2>7. SVG Ellipse</h2>
+
+    <svg width="500" height="200"
+         style="border:2px solid black;">
+
+        <ellipse cx="250"
+                 cy="100"
+                 rx="150"
+                 ry="60"
+                 fill="orange" />
+
+    </svg>
+
+
+    <!-- ==================== SVG POLYGON ==================== -->
+
+    <h2>8. SVG Polygon</h2>
+
+    <svg width="500" height="250"
+         style="border:2px solid black;">
+
+        <polygon points="250,30 350,200 150,200"
+                 fill="purple"
+                 stroke="black"
+                 stroke-width="3" />
+
+    </svg>
+
+
+    <!-- ==================== SVG TEXT ==================== -->
+
+    <h2>9. SVG Text</h2>
+
+    <svg width="500" height="150"
+         style="border:2px solid black;">
+
+        <text x="100"
+              y="80"
+              font-size="35"
+              fill="blue">
+            Hello SVG
+        </text>
+
+    </svg>
+
+
+    <!-- ==================== SVG ROTATION ==================== -->
+
+    <h2>10. SVG Rotation</h2>
+
+    <svg width="500" height="300"
+         style="border:2px solid black;">
+
+        <rect x="180"
+              y="80"
+              width="140"
+              height="80"
+              fill="blue"
+              transform="rotate(30 250 120)" />
+
+    </svg>
+
+
+    <!-- ==================== SVG MOVEMENT ==================== -->
+
+    <h2>11. SVG Moving Example</h2>
+
+    <svg width="600" height="250"
+         style="border:2px solid black;">
+
+        <rect x="50"
+              y="100"
+              width="100"
+              height="60"
+              fill="blue">
+
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="0 0"
+                to="400 0"
+                dur="4s"
+                repeatCount="indefinite" />
+
+        </rect>
+
+    </svg>
+
+
+    <!-- ==================== SVG MOVING + ROTATION ==================== -->
+
+    <h2>12. SVG Moving and Rotation</h2>
+
+    <svg width="600" height="300"
+         style="border:2px solid black;">
+
+        <rect x="50"
+              y="100"
+              width="100"
+              height="60"
+              fill="blue">
+
+            <!-- Moving Animation -->
+            <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="0 0"
+                to="400 0"
+                dur="4s"
+                repeatCount="indefinite" />
+
+            <!-- Rotation Animation -->
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 100 130"
+                to="360 100 130"
+                dur="2s"
+                repeatCount="indefinite"
+                additive="sum" />
+
+        </rect>
+
+    </svg>
+
+</body>
+</html>
+```
