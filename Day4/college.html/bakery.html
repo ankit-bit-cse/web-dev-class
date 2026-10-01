@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sweet Treats Bakery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f0;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #6b3e26;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffd6a5;
+        }
+
+        /* Home */
+        #home {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(
+                rgba(107, 62, 38, 0.7),
+                rgba(107, 62, 38, 0.7)
+            ),
+            url("https://images.unsplash.com/photo-1519869325930-281384150729")
+            center/cover;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #ff9f43;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+        }
+
+        /* Common Section */
+        section {
+            padding: 70px 50px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 35px;
+            color: #6b3e26;
+            margin-bottom: 40px;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 15px 0 8px;
+            color: #6b3e26;
+        }
+
+        .price {
+            color: #e67e22;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* About */
+        #about {
+            background-color: #ffe9d6;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .contact-box textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .contact-box button {
+            width: 100%;
+            padding: 14px;
+            background-color: #6b3e26;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .contact-box button:hover {
+            background-color: #4d2b1b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6b3e26;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🍰 Sweet Treats</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero">
+            <h1>Welcome to Sweet Treats Bakery</h1>
+
+            <p>
+                Fresh Cakes, Pastries & Cookies Made With Love ❤️
+            </p>
+
+            <a href="#products" class="btn">View Products</a>
+        </div>
+    </section>
+
+
+    <!-- Products Section -->
+    <section id="products">
+
+        <h2 class="heading">Our Products</h2>
+
+        <div class="products">
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587"
+                     alt="Chocolate Cake">
+
+                <h3>Chocolate Cake</h3>
+
+                <p>Delicious and creamy chocolate cake.</p>
+
+                <br>
+
+                <div class="price">₹450</div>
+            </div>
+
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307"
+                     alt="Donuts">
+
+                <h3>Fresh Donuts</h3>
+
+                <p>Soft and tasty freshly baked donuts.</p>
+
+                <br>
+
+                <div class="price">₹80</div>
+            </div>
+
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35"
+                     alt="Cookies">
+
+                <h3>Cookies</h3>
+
+                <p>Crunchy and delicious chocolate cookies.</p>
+
+                <br>
+
+                <div class="price">₹150</div>
+            </div>
+
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d"
+                     alt="Cupcake">
+
+                <h3>Cupcake</h3>
+
+                <p>Soft cupcakes with creamy topping.</p>
+
+                <br>
+
+                <div class="price">₹60</div>
+            </div>
+
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1614707267537-2b7e2e2f0e4e"
+                     alt="Croissant">
+
+                <h3>Croissant</h3>
+
+                <p>Fresh and crispy buttery croissant.</p>
+
+                <br>
+
+                <div class="price">₹90</div>
+            </div>
+
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d"
+                     alt="Strawberry Cake">
+
+                <h3>Strawberry Cake</h3>
+
+                <p>Fresh strawberry cake with cream.</p>
+
+                <br>
+
+                <div class="price">₹500</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+
+        <h2 class="heading">About Us</h2>
+
+        <div class="about-text">
+            <p>
+                Welcome to Sweet Treats Bakery. We prepare fresh and
+                delicious cakes, pastries, cookies and other bakery
+                products every day.
+            </p>
+
+            <p>
+                Our goal is to provide high-quality bakery products
+                at affordable prices. Every product is made with
+                fresh ingredients and lots of love.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <h2 class="heading">Contact Us</h2>
+
+        <div class="contact-box">
+
+            <form>
+
+                <input type="text"
+                       placeholder="Enter Your Name"
+                       required>
+
+                <input type="email"
+                       placeholder="Enter Your Email"
+                       required>
+
+                <input type="tel"
+                       placeholder="Enter Your Phone Number"
+                       required>
+
+                <textarea
+                    placeholder="Write your message..."
+                    required></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Sweet Treats Bakery | All Rights Reserved
+        </p>
+
+        <p>
+            📍 Durg, Chhattisgarh |
+            📞 +91 98765 43210 |
+            ✉️ sweettreats@gmail.com
+        </p>
+
+    </footer>
+
+</body>
+</html>
