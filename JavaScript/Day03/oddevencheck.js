@@ -1,5 +1,5 @@
-function oddevencheck () {
-    let Number = 13
+function oddevencheck (Number) {
+    
     if(Number % 2 === 0) {
         console.log("Even");
     }
@@ -9,4 +9,4 @@ function oddevencheck () {
 }
 
 
-oddevencheck();
+oddevencheck(41);
