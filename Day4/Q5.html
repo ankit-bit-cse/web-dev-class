@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Animation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(
+                45deg, #090979, #00d4ff, #8e2de2
+            );
+            background-size: 400% 400%;
+            animation: backgroundMove 8s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 45px;
+            text-shadow: 0 0 20px cyan;
+            animation: textMove 2s infinite alternate;
+        }
+
+        @keyframes textMove {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-30px);
+            }
+        }
+
+        .ball {
+            width: 80px;
+            height: 80px;
+            background: cyan;
+            border-radius: 50%;
+            position: absolute;
+            top: 70%;
+            left: 10%;
+            box-shadow: 0 0 40px cyan;
+            animation: ballMove 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes ballMove {
+            0% {
+                left: 10%;
+                top: 70%;
+            }
+            50% {
+                left: 45%;
+                top: 15%;
+            }
+            100% {
+                left: 80%;
+                top: 70%;
+            }
+        }
+
+        .cursor {
+            width: 25px;
+            height: 25px;
+            background: yellow;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            box-shadow: 0 0 25px yellow;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>WELCOME TO MOTION WORLD</h1>
+
+    <div class="ball"></div>
+    <div class="cursor" id="cursor"></div>
+
+    <script>
+        const cursor = document.getElementById("cursor");
+
+        document.addEventListener("mousemove", function(event) {
+            cursor.style.left = event.clientX + "px";
+            cursor.style.top = event.clientY + "px";
+        });
+    </script>
+
+</body>
+</html>
