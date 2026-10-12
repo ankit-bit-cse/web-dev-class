@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Classroom</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #dceeff;
+}
+
+h1 {
+    text-align: center;
+    padding: 15px;
+    background: #17365d;
+    color: white;
+}
+
+.classroom {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: linear-gradient(#f5dfba 0 72%, #b87c48 72%);
+    border: 8px solid #704323;
+}
+
+/* Blackboard */
+.board {
+    position: absolute;
+    top: 35px;
+    left: 30%;
+    width: 40%;
+    height: 150px;
+    background: #164c3a;
+    border: 10px solid #8b542e;
+    color: white;
+    text-align: center;
+    padding-top: 35px;
+    font-size: 28px;
+    box-shadow: 0 5px 8px #555;
+}
+
+/* Teacher */
+.teacher {
+    position: absolute;
+    top: 205px;
+    left: 47%;
+    text-align: center;
+    animation: teach 2s infinite alternate;
+}
+
+.head {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #c68642;
+    margin: auto;
+    border: 2px solid #754c24;
+}
+
+.body {
+    width: 65px;
+    height: 80px;
+    background: #2874a6;
+    border-radius: 10px 10px 0 0;
+    margin: auto;
+}
+
+@keyframes teach {
+    from { transform: translateX(-5px); }
+    to { transform: translateX(5px); }
+}
+
+/* Windows */
+.window {
+    position: absolute;
+    top: 45px;
+    width: 100px;
+    height: 120px;
+    background: #9ce6ff;
+    border: 8px solid #8b542e;
+}
+
+.window::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #8b542e;
+    left: 42px;
+}
+
+.window::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #8b542e;
+    top: 50px;
+}
+
+.w1 { left: 25px; }
+.w2 { right: 25px; }
+
+/* Fan */
+.fan {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    animation: rotate 1s linear infinite;
+}
+
+.blade {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 10px;
+    height: 35px;
+    background: #555;
+    border-radius: 10px;
+    transform-origin: 5px 5px;
+}
+
+.blade:nth-child(2) { transform: rotate(120deg); }
+.blade:nth-child(3) { transform: rotate(240deg); }
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* Student benches */
+.row {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    left: 5%;
+}
+
+.row1 { top: 360px; }
+.row2 { top: 475px; }
+
+.student {
+    width: 100px;
+    text-align: center;
+}
+
+.student-head {
+    width: 38px;
+    height: 38px;
+    background: #d69b68;
+    border-radius: 50%;
+    margin: auto;
+    border: 2px solid #754c24;
+}
+
+.student-body {
+    width: 55px;
+    height: 40px;
+    background: #e74c3c;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.desk {
+    width: 100px;
+    height: 18px;
+    background: #8b542e;
+    border: 2px solid #603813;
+    margin: -3px auto 0;
+    position: relative;
+}
+
+.desk::after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 7px;
+    background: #603813;
+    top: 16px;
+    left: 10px;
+    box-shadow: 70px 0 #603813;
+}
+
+.student:nth-child(even) .student-body {
+    background: #2980b9;
+}
+
+footer {
+    background: #17365d;
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🏫 MY CLASSROOM</h1>
+
+<div class="classroom">
+
+    <div class="window w1"></div>
+    <div class="window w2"></div>
+
+    <div class="fan">
+        <div class="blade"></div>
+        <div class="blade"></div>
+        <div class="blade"></div>
+    </div>
+
+    <div class="board">
+        WELCOME STUDENTS!
+        <p style="font-size:18px; margin-top:15px;">
+            HTML + CSS Learning
+        </p>
+    </div>
+
+    <div class="teacher">
+        <div class="head"></div>
+        <div class="body"></div>
+    </div>
+
+    <div class="row row1">
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+    </div>
+
+    <div class="row row2">
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+        <div class="student">
+            <div class="student-head"></div>
+            <div class="student-body"></div>
+            <div class="desk"></div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Designed with HTML, CSS & Animation
+</footer>
+
+</body>
+</html>
