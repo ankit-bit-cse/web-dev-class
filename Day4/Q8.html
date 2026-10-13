@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie's Mess Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f5;
+            color: #26352b;
+        }
+
+        header {
+            background: #153c2d;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #153c2d, #39865b);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f3c969;
+            color: #153c2d;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 45px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px #00000010;
+        }
+
+        .card h3 {
+            color: #28754b;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            line-height: 1.7;
+        }
+
+        .record {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 13px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #153c2d;
+            color: white;
+        }
+
+        select, input {
+            padding: 9px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .status {
+            background: #28754b;
+            color: white;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .off {
+            background: #c0392b;
+        }
+
+        #total {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #28754b;
+        }
+
+        .contact {
+            text-align: center;
+            background: #e3eee6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: #153c2d;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 8px;
+                display: inline-block;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            section {
+                padding: 35px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🍽️ Foodie's Mess</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#record">Tiffin Record</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <h2>Welcome to Our Mess!</h2>
+        <p>Fresh Food, Healthy Life. Ghar Jaisa Khana!</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </div>
+
+    <section id="menu">
+        <h2>🍛 Our Daily Menu</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>🌅 Breakfast</h3>
+                <p>Poha, Paratha, Bread & Tea</p>
+                <p><b>Time:</b> 8:00 AM</p>
+            </div>
+
+            <div class="card">
+                <h3>☀️ Lunch</h3>
+                <p>Roti, Rice, Dal & Sabzi</p>
+                <p><b>Time:</b> 1:00 PM</p>
+            </div>
+
+            <div class="card">
+                <h3>🌙 Dinner</h3>
+                <p>Roti, Rice, Dal & Seasonal Sabzi</p>
+                <p><b>Time:</b> 8:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="record">
+        <h2>📋 Monthly Tiffin Record</h2>
+
+        <div class="record">
+            <p style="margin-bottom:15px;">
+                Student Name:
+                <input type="text" id="student"
+                       placeholder="Enter your name">
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Meal</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Breakfast</td>
+                        <td id="breakfastStatus">YES</td>
+                        <td>
+                            <button class="status"
+                                onclick="toggleMeal('breakfastStatus', this)">
+                                OFF
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Lunch</td>
+                        <td id="lunchStatus">YES</td>
+                        <td>
+                            <button class="status"
+                                onclick="toggleMeal('lunchStatus', this)">
+                                OFF
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Dinner</td>
+                        <td id="dinnerStatus">YES</td>
+                        <td>
+                            <button class="status"
+                                onclick="toggleMeal('dinnerStatus', this)">
+                                OFF
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p id="total">Total YES Meals: 3</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>📞 Contact Us</h2>
+        <p>Address: Your Mess Address Here</p>
+        <p>Phone: +91 XXXXXXXXXX</p>
+        <p>Email: yourmess@example.com</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Foodie's Mess | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function toggleMeal(id, button) {
+            const status = document.getElementById(id);
+
+            if (status.textContent === "YES") {
+                status.textContent = "OFF";
+                button.textContent = "YES";
+                button.classList.add("off");
+            } else {
+                status.textContent = "YES";
+                button.textContent = "OFF";
+                button.classList.remove("off");
+            }
+
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const meals = [
+                "breakfastStatus",
+                "lunchStatus",
+                "dinnerStatus"
+            ];
+
+            let count = 0;
+
+            meals.forEach(function(id) {
+                if (document.getElementById(id).textContent === "YES") {
+                    count++;
+                }
+            });
+
+            document.getElementById("total").textContent =
+                "Total YES Meals: " + count;
+        }
+    </script>
+
+</body>
+</html>
