@@ -1,0 +1,173 @@
+
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Layouts</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* =========================
+           1. FLOAT LAYOUT
+           ========================= */
+        .float-section {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .float-left {
+            float: left;
+            width: 30%;
+            height: 150px;
+            background-color: lightblue;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .float-right {
+            float: right;
+            width: 65%;
+            height: 150px;
+            background-color: lightgreen;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* =========================
+           2. INLINE-BLOCK LAYOUT
+           ========================= */
+        .inline-section {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .inline-box {
+            display: inline-block;
+            width: 30%;
+            height: 150px;
+            margin: 1%;
+            padding: 20px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        .box1 {
+            background-color: lightcoral;
+        }
+
+        .box2 {
+            background-color: khaki;
+        }
+
+        .box3 {
+            background-color: plum;
+        }
+
+        /* =========================
+           3. FLEXBOX LAYOUT
+           ========================= */
+        .flex-section {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+            gap: 20px;
+        }
+        .flex-box {
+            flex: 1;
+            height: 150px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: lightseagreen;
+        }
+        .flex-box:nth-child(2) {
+            background-color: orange;
+        }
+        .flex-box:nth-child(3) {
+            background-color: skyblue;
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Layout Design</h1>
+        <p>Float | Inline-Block | Flexbox</p>
+    </header>
+    <!-- FLOAT LAYOUT -->
+    <h2 style="text-align:center;">1. Layout Using Float</h2>
+    <div class="float-section">
+        <div class="float-left">
+            <h3>Sidebar</h3>
+            <p>Home</p>
+            <p>About</p>
+        </div>
+        <div class="float-right">
+            <h3>Main Content</h3>
+            <p>
+                This section is created using
+                <b>float</b> property.
+            </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- INLINE-BLOCK LAYOUT -->
+    <h2 style="text-align:center;">2. Layout Using Inline-Block</h2>
+    <div class="inline-section">
+        <div class="inline-box box1">
+            <h3>HTML</h3>
+            <p>Structure of webpage</p>
+        </div>
+        <div class="inline-box box2">
+            <h3>CSS</h3>
+            <p>Style of webpage</p>
+        </div>
+        <div class="inline-box box3">
+            <h3>JavaScript</h3>
+            <p>Functionality of webpage</p>
+        </div>
+    </div>
+    <!-- FLEXBOX LAYOUT -->
+    <h2 style="text-align:center;">3. Layout Using Flexbox</h2>
+    <div class="flex-section">
+        <div class="flex-box">
+            <h3>Box 1</h3>
+            <p>Flexbox creates flexible layouts.</p>
+        </div>
+        <div class="flex-box">
+            <h3>Box 2</h3>
+            <p>Items are arranged in a row.</p>
+        </div>
+        <div class="flex-box">
+            <h3>Box 3</h3>
+            <p>Flexbox is useful for responsive design.</p>
+        </div>
+    </div>
+    <footer>
+        <p>CSS Layout Example © 2026</p>
+    </footer>
+</body>
+</html>
+
