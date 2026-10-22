@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment 10 - JavaScript</title>
+</head>
+<body>
+
+<h2>EXP-10: JavaScript Variables, Data Types and Operators</h2>
+
+<script>
+    // 1. Variables and Data Types
+    document.write("<h3>1. Variables and Data Types</h3>");
+
+    let name = "Ram";
+    let age = 25;
+    let isTeacher = true;
+    let address;
+    let salary = null;
+
+    let student = {
+        name: "Rahul",
+        age: 20
+    };
+
+    let subjects = ["HTML", "CSS", "JavaScript"];
+
+    document.write("Name: " + name + "<br>");
+    document.write("Age: " + age + "<br>");
+    document.write("Teacher: " + isTeacher + "<br>");
+    document.write("Address: " + address + "<br>");
+    document.write("Salary: " + salary + "<br>");
+    document.write("Student Name: " + student.name + "<br>");
+    document.write("Subjects: " + subjects + "<br>");
+
+    // 2. Arithmetic Operators
+    document.write("<h3>2. Arithmetic Operators</h3>");
+
+    let a = 20;
+    let b = 6;
+
+    document.write("Addition: " + (a + b) + "<br>");
+    document.write("Subtraction: " + (a - b) + "<br>");
+    document.write("Multiplication: " + (a * b) + "<br>");
+    document.write("Division: " + (a / b) + "<br>");
+    document.write("Remainder: " + (a % b) + "<br>");
+
+    a++;
+    document.write("After Increment: " + a + "<br>");
+
+    b--;
+    document.write("After Decrement: " + b + "<br>");
+
+    // 3. Comparison Operators
+    document.write("<h3>3. Comparison Operators</h3>");
+
+    let x = 10;
+    let y = 20;
+
+    document.write("x == y: " + (x == y) + "<br>");
+    document.write("x != y: " + (x != y) + "<br>");
+    document.write("x > y: " + (x > y) + "<br>");
+    document.write("x < y: " + (x < y) + "<br>");
+    document.write("x >= y: " + (x >= y) + "<br>");
+    document.write("x <= y: " + (x <= y) + "<br>");
+
+    // 4. Logical Operators
+    document.write("<h3>4. Logical Operators</h3>");
+
+    let studentAge = 25;
+    let hasID = true;
+
+    document.write("AND: " + (studentAge >= 18 && hasID) + "<br>");
+    document.write("OR: " + (studentAge >= 18 || hasID) + "<br>");
+    document.write("NOT: " + (!hasID) + "<br>");
+
+    // 5. Assignment Operators
+    document.write("<h3>5. Assignment Operators</h3>");
+
+    let num = 10;
+
+    document.write("Initial value: " + num + "<br>");
+
+    num += 5;
+    document.write("After += 5: " + num + "<br>");
+
+    num -= 3;
+    document.write("After -= 3: " + num + "<br>");
+
+    num *= 2;
+    document.write("After *= 2: " + num + "<br>");
+
+    num /= 4;
+    document.write("After /= 4: " + num + "<br>");
+
+</script>
+
+</body>
+</html>
